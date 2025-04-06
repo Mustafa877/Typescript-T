@@ -1,32 +1,23 @@
-let Names=['mario','luigi','toad'];
-Names.push('yoshi');
-Names.push('peach');
-Names.push('bowser');
+let age: any = 25;
 
-let mixed=[10,'mario',false];
-mixed.push('luigi');
-mixed.push(12);
-mixed.push(true);
+age = true;
+console.log(age);
+age = 'hello';
+console.log(age);
+age = { name: 'luigi' };
+console.log(age);
 
-let person={
-    name:'mario',
-    age:30,
-    belt:'black'
-};
+let mixed: any[] = [];
 
-person.age=40;
-person.name='luigi';   
+mixed.push(5);
+mixed.push('mario');
+mixed.push(false);
+console.log(mixed);
 
+let shcool: { name: any, age: any };
 
+shcool = { name: 'yoshi', age: 25 };
+console.log(shcool);
 
-
-
-
-
-
-
-
-
-
-
-
+shcool = { name: 25, age: 'yoshi' };
+console.log(shcool);
