@@ -1,43 +1,23 @@
+let age: any = 25;
 
-let greet:string='hello';
-let age:number=30;
-let isBlackBelt:boolean=false;
+age = true;
+console.log(age);
+age = 'hello';
+console.log(age);
+age = { name: 'luigi' };
+console.log(age);
 
-isBlackBelt=true;
-let arr:string[]=[];
+let mixed: any[] = [];
 
-arr.push('yoshi');
-
- let mixed: (string|number|boolean)[]=[];
-
- mixed.push('hello');
- mixed.push(20);
- mixed.push(true);  
-
+mixed.push(5);
+mixed.push('mario');
+mixed.push(false);
 console.log(mixed);
-let uid:string|number;
 
-uid='123';
-uid=123;    
+let shcool: { name: any, age: any };
 
-let obj :object;
-obj={
-    name:'mario',
-    age:30
-};
+shcool = { name: 'yoshi', age: 25 };
+console.log(shcool);
 
-let obj2: {
-    name:string,
-    age:number
-};
-
-obj2={
-    name:'luigi',
-    age:20
-};
-
-
-
-
-
- 
+shcool = { name: 25, age: 'yoshi' };
+console.log(shcool);

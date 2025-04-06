@@ -1,24 +1,17 @@
-var greet = 'hello';
-var age = 30;
-var isBlackBelt = false;
-isBlackBelt = true;
-var arr = [];
-arr.push('yoshi');
+var age = 25;
+age = true;
+console.log(age);
+age = 'hello';
+console.log(age);
+age = { name: 'luigi' };
+console.log(age);
 var mixed = [];
-mixed.push('hello');
-mixed.push(20);
-mixed.push(true);
+mixed.push(5);
+mixed.push('mario');
+mixed.push(false);
 console.log(mixed);
-var uid;
-uid = '123';
-uid = 123;
-var obj;
-obj = {
-    name: 'mario',
-    age: 30
-};
-var obj2;
-obj2 = {
-    name: 'luigi',
-    age: 20
-};
+var shcool;
+shcool = { name: 'yoshi', age: 25 };
+console.log(shcool);
+shcool = { name: 25, age: 'yoshi' };
+console.log(shcool);
