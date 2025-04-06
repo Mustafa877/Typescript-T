@@ -1,11 +1,32 @@
-let  character = 'mario';
-let age = 30;
-var isBlackBelt = false;
+let Names=['mario','luigi','toad'];
+Names.push('yoshi');
+Names.push('peach');
+Names.push('bowser');
 
-const circ = (diameter:number) => {
-    return diameter * Math.PI;
-}
+let mixed=[10,'mario',false];
+mixed.push('luigi');
+mixed.push(12);
+mixed.push(true);
 
-console.log(circ(7.5));
+let person={
+    name:'mario',
+    age:30,
+    belt:'black'
+};
+
+person.age=40;
+person.name='luigi';   
+
+
+
+
+
+
+
+
+
+
+
+
 
 
