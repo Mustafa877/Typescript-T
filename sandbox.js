@@ -1,15 +1,24 @@
-var Names = ['mario', 'luigi', 'toad'];
-Names.push('yoshi');
-Names.push('peach');
-Names.push('bowser');
-var mixed = [10, 'mario', false];
-mixed.push('luigi');
-mixed.push(12);
+var greet = 'hello';
+var age = 30;
+var isBlackBelt = false;
+isBlackBelt = true;
+var arr = [];
+arr.push('yoshi');
+var mixed = [];
+mixed.push('hello');
+mixed.push(20);
 mixed.push(true);
-var person = {
+console.log(mixed);
+var uid;
+uid = '123';
+uid = 123;
+var obj;
+obj = {
     name: 'mario',
-    age: 30,
-    belt: 'black'
+    age: 30
 };
-person.age = 40;
-person.name = 'luigi';
+var obj2;
+obj2 = {
+    name: 'luigi',
+    age: 20
+};

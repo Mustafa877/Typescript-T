@@ -1,32 +1,43 @@
-let Names=['mario','luigi','toad'];
-Names.push('yoshi');
-Names.push('peach');
-Names.push('bowser');
 
-let mixed=[10,'mario',false];
-mixed.push('luigi');
-mixed.push(12);
-mixed.push(true);
+let greet:string='hello';
+let age:number=30;
+let isBlackBelt:boolean=false;
 
-let person={
+isBlackBelt=true;
+let arr:string[]=[];
+
+arr.push('yoshi');
+
+ let mixed: (string|number|boolean)[]=[];
+
+ mixed.push('hello');
+ mixed.push(20);
+ mixed.push(true);  
+
+console.log(mixed);
+let uid:string|number;
+
+uid='123';
+uid=123;    
+
+let obj :object;
+obj={
     name:'mario',
-    age:30,
-    belt:'black'
+    age:30
 };
 
-person.age=40;
-person.name='luigi';   
+let obj2: {
+    name:string,
+    age:number
+};
+
+obj2={
+    name:'luigi',
+    age:20
+};
 
 
 
 
 
-
-
-
-
-
-
-
-
-
+ 
