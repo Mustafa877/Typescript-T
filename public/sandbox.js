@@ -1,18 +1,10 @@
 "use strict";
-// let greet: Function = () => {
-//   console.log('hello, world');
-// }
-// greet = 'hello';
-// greet = () => {
-//   console.log('hello, again');
-// }
-const add = (a, b, c /*?*/ = 10) => {
-    console.log(a + b);
-    console.log(c);
+const logDetails = (uid, item) => {
+    console.log(`${item} has a uid of ${uid}`);
 };
-add(5, 10, 'ninja');
-const minus = (a, b) => {
-    return a + b;
+const greet = (user) => {
+    console.log(`${user.name} says hello`);
 };
-let result = minus(10, 7);
-console.log(result);
+const greetAgain = (user) => {
+    console.log(`${user.name} says hello`);
+};
