@@ -16,7 +16,10 @@ class Invoice {
 }
 const invOne = new Invoice('mario', 'web development', 200);
 const invTwo = new Invoice('luigi', 'web development', 100);
-console.log(invOne, invTwo);
+let invoices = [];
+invoices.push(invOne);
+invoices.push(invTwo);
+console.log(invoices);
 const form = document.querySelector('.new-item-form');
 //inputs
 const type = document.querySelector('#type');
