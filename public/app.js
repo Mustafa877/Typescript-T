@@ -4,6 +4,19 @@
 // if (anchor) {
 //     console.log(anchor.href);
 // }
+class Invoice {
+    constructor(c, d, a) {
+        this.client = c;
+        this.details = d;
+        this.amount = a;
+    }
+    format() {
+        return `${this.client} owes £${this.amount} for ${this.details}`;
+    }
+}
+const invOne = new Invoice('mario', 'web development', 200);
+const invTwo = new Invoice('luigi', 'web development', 100);
+console.log(invOne, invTwo);
 const form = document.querySelector('.new-item-form');
 //inputs
 const type = document.querySelector('#type');
