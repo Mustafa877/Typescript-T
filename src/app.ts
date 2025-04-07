@@ -3,6 +3,31 @@
 // if (anchor) {
 //     console.log(anchor.href);
 // }
+class Invoice {
+    client: string;
+    details: string;
+    amount: number;
+
+    constructor(c: string, d: string, a: number) {
+        this.client = c;
+        this.details = d;
+        this.amount = a;    
+    }
+
+    format() {
+        return `${this.client} owes £${this.amount} for ${this.details}`;
+    }
+}
+
+const invOne = new Invoice('mario', 'web development', 200);
+const invTwo = new Invoice('luigi', 'web development', 100);
+
+let invoices: Invoice[] = [];
+invoices.push(invOne);
+invoices.push(invTwo);
+
+console.log(invoices);    
+
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
  
  
@@ -18,9 +43,4 @@ form.addEventListener('submit', (e) => {
     console.log(type.value, tofrom.value, details.value, amount.valueAsNumber);
 });
 
-
-
-
-
-
-
+ 
