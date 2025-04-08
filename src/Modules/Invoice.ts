@@ -1,15 +1,20 @@
+// src/Modules/Invoice.ts
 export class Invoice {
-    // readonly client: string;
-    // private details: string;
-    // public amount: number;
-  
-    constructor(
-      readonly client: string, 
-      private details: string, 
-      public amount: number,
-    ){}
-  
-    format() {
-      return `${this.client} owes £${this.amount} for ${this.details}`;
+  constructor(
+    readonly client: string,
+    private details: string,
+    public amount: number,
+  ) {
+    if (amount <= 0) {
+      throw new Error('Amount must be greater than 0');
     }
   }
+
+  getDetails(): string {
+    return this.details;
+  }
+
+  format(): string {
+    return `${this.client} owes £${this.amount.toFixed(2)} for ${this.details}`;
+  }
+}
