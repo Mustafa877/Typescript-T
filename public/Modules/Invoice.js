@@ -1,4 +1,3 @@
-// src/Modules/Invoice.ts
 export class Invoice {
     constructor(client, details, amount) {
         this.client = client;

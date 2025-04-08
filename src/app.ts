@@ -1,47 +1,22 @@
 import { Invoice } from "./Modules/Invoice.js";
+import { Payment } from "./Modules/Payment.js";
+import { HasFormatter } from "./interfaces/HasFormatter.js";
 
-interface IsPerson {
-  name: string;
-  age: number;
-  speak(a: string): void;
-  spend(a: number): number;
-}
+let docOne: HasFormatter;
+let docTwo: HasFormatter;
 
-const me: IsPerson = {
-  name: 'John',
-  age: 20,
-  speak(text: string): void {
-    console.log(text);
-  },
-  spend(amount: number): number {
-    return amount;
-  }
+docOne = new Invoice('mario', 'work on the mario website', 250);
+docTwo = new Payment('luigi', 'work on the luigi website', 300);
+console.log(docOne, docTwo);
 
-}
+let docs: HasFormatter[] = [];
+docs.push(docOne);
+docs.push(docTwo);
 
-const greetPerson = (person: IsPerson) => {
-  console.log('Hello', person.name);
-}
-
-greetPerson(me);
-
-// classes
-
-
-
-  
-  const invOne = new Invoice('mario', 'work on the mario website', 250);
-  const invTwo = new Invoice('luigi', 'work on the luigi website', 300);
-  
-  let invoices: Invoice[] = [];
-  invoices.push(invOne)
-  invoices.push(invTwo);
-  
-  invoices.forEach(inv => {
-    console.log(inv.client, /*inv.details,*/ inv.amount, inv.format());
-  })
-  
-  
+docs.forEach(doc => {
+  console.log(doc);
+});
+ 
   
   const form = document.querySelector('.new-item-form') as HTMLFormElement;
   console.log(form.children);
@@ -55,10 +30,15 @@ greetPerson(me);
   form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
   
-    console.log(
-      type.value, 
-      tofrom.value, 
-      details.value, 
-      amount.valueAsNumber
-    );
+    let doc: HasFormatter;
+
+    if (type.value === 'invoice') { 
+      doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    }
+    else {  
+      doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+    }
+
+    console.log(doc);
+    
   });
