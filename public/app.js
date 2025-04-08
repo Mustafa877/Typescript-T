@@ -2,7 +2,7 @@ import { Invoice } from './Modules/Invoice.js';
 import { Payment } from './Modules/Payment.js';
 import { ListTemplate } from './Modules/listTemplate.js';
 const form = document.querySelector('.new-item-form');
-console.log(form.children);
+// console.log(form.children);
 // inputs
 const type = document.querySelector('#type');
 const tofrom = document.querySelector('#tofrom');
@@ -37,15 +37,23 @@ const addUID = (obj) => {
 };
 let docOne = addUID({ name: 'yoshi', age: 40 });
 //let docTwo = addUID('shaun');
-console.log(docOne.name);
+// console.log(docOne.name);
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 2] = "FILM";
+    ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
+    ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
+})(ResourceType || (ResourceType = {}));
 const docThree = {
     uid: 1,
-    resourceName: 'person',
+    resourceName: ResourceType.BOOK,
     data: { name: 'shaun' }
 };
 const docFour = {
     uid: 1,
-    resourceName: 'shoppingList',
+    resourceName: ResourceType.AUTHOR,
     data: ['bread', 'milk']
 };
 console.log(docThree, docFour);
