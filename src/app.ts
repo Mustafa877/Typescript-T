@@ -1,5 +1,6 @@
 import { Invoice } from "./Modules/Invoice.js";
 import { Payment } from "./Modules/Payment.js";
+import { ListTemplate } from "./Modules/listTemplate.js";
 import { HasFormatter } from "./interfaces/HasFormatter.js";
 
 let docOne: HasFormatter;
@@ -27,6 +28,10 @@ docs.forEach(doc => {
   const details = document.querySelector('#details') as HTMLInputElement;
   const amount = document.querySelector('#amount') as HTMLInputElement;
   
+  // list template instance
+  const ul = document.querySelector('ul')!;
+  const list = new ListTemplate(ul);
+
   form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
   
@@ -39,6 +44,6 @@ docs.forEach(doc => {
       doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
     }
 
-    console.log(doc);
+    list.render(doc, type.value, 'start');
     
   });
