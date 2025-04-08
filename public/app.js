@@ -23,6 +23,9 @@ form.addEventListener('submit', (e) => {
         doc = new Payment(...values);
     }
     list.render(doc, type.value, 'end');
+    tofrom.value = '';
+    details.value = '';
+    amount.value = '';
 });
 //Tuple
 let arr = ['mario', 25, true];

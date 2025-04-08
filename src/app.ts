@@ -20,7 +20,7 @@ const list = new ListTemplate(ul);
 form.addEventListener('submit', (e: Event) => {
   e.preventDefault();
   
-   let values: [string, string, number] = [tofrom.value, details.value, amount.valueAsNumber];
+  let values: [string, string, number] = [tofrom.value, details.value, amount.valueAsNumber];
 
   // console.log(values); 
   let doc: HasFormatter;
@@ -29,8 +29,13 @@ form.addEventListener('submit', (e: Event) => {
   } else {
     doc = new Payment(...values);
   }
-  
+ 
   list.render(doc, type.value, 'end');
+
+ 
+  tofrom.value = '';
+  details.value = '';
+  amount.value = '';
 });
 
 //Tuple
