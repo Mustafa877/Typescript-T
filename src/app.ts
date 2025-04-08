@@ -4,7 +4,7 @@ import { ListTemplate } from './Modules/listTemplate.js';
 import { HasFormatter } from './interfaces/HasFormatter.js';
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
-console.log(form.children);
+// console.log(form.children);
 
 // inputs
 const type = document.querySelector('#type') as HTMLInputElement;
@@ -49,24 +49,32 @@ const addUID = <T extends {name: string}>(obj: T) => {
 let docOne = addUID({name: 'yoshi', age: 40});
 //let docTwo = addUID('shaun');
 
-console.log(docOne.name);
+// console.log(docOne.name);
+
+enum ResourceType {
+  BOOK, 
+  AUTHOR,
+  FILM,
+  DIRECTOR,
+  PERSON
+}
 
 // with interfaces
 interface Resource<T> {
   uid: number;
-  resourceName: string;
+  resourceName: ResourceType;
   data: T;
 }
 
 const docThree: Resource<object> = {
   uid: 1, 
-  resourceName: 'person', 
+  resourceName: ResourceType.BOOK, 
   data: { name: 'shaun' }
 };
 
 const docFour: Resource<string[]> = {
   uid: 1, 
-  resourceName: 'shoppingList', 
+  resourceName: ResourceType.AUTHOR, 
   data: ['bread', 'milk']
 };
 
