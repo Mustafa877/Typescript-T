@@ -1,38 +1,83 @@
-import { Invoice } from './Modules/Invoice.js';
-import { Payment } from './Modules/Payment.js';
-import { ListTemplate } from './Modules/listTemplate.js';
-const form = document.querySelector('.new-item-form');
-// console.log(form.children);
-// inputs
-const type = document.querySelector('#type');
-const tofrom = document.querySelector('#tofrom');
-const details = document.querySelector('#details');
-const amount = document.querySelector('#amount');
-// list template instance
-const ul = document.querySelector('ul');
-const list = new ListTemplate(ul);
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let values = [tofrom.value, details.value, amount.valueAsNumber];
-    // console.log(values); 
-    let doc;
-    if (type.value === 'invoice') {
-        doc = new Invoice(...values);
-    }
-    else {
-        doc = new Payment(...values);
-    }
-    list.render(doc, type.value, 'end');
-    tofrom.value = '';
-    details.value = '';
-    amount.value = '';
-});
-//Tuple
-let arr = ['mario', 25, true];
-arr[0] = 'luigi';
-arr[1] = 30;
-arr[2] = false;
-arr = [30, 'luigi', false]; // this is not allowed because the order of the tuple is changed
-let tup = ['mario', 25, true];
-tup[0] = 'luigi';
-tup[1] = 30;
+// Define User interface
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+const API_URL = "https://jsonplaceholder.typicode.com/users";
+// READ 
+function getUsers() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch(API_URL);
+        return response.json();
+    });
+}
+// CREATE
+function createUser(user) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch(API_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+        });
+        return response.json();
+    });
+}
+// UPDATE 
+function updateUser(id, user) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch(`${API_URL}/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+        });
+        return response.json();
+    });
+}
+// DELETE
+function deleteUser(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield fetch(`${API_URL}/${id}`, {
+            method: "DELETE",
+        });
+    });
+}
+function main() {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            // Get all users
+            const users = yield getUsers();
+            console.log("All users:", users);
+            // Create new user
+            const newUser = yield createUser({
+                name: "MUSTAFA HAADDAD",
+                email: "mustafa.haaddad@example.com",
+                username: "mustafa.haaddad",
+            });
+            console.log("Created user:", newUser);
+            // Update user
+            const updatedUser = yield updateUser(1, {
+                name: "ail",
+                email: "ail@example.com",
+                username: "ail",
+            });
+            console.log("Updated user:", updatedUser);
+            // Delete user
+            yield deleteUser(1);
+            console.log("User deleted successfully");
+        }
+        catch (error) {
+            console.error("Error:", error);
+        }
+    });
+}
+main();
+export {};
